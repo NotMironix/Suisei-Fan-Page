@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoshimachi Suisei | Fan Page</title>
+
+    <style>
+        :root {
+            --navy: #0b1230;
+            --blue: #7cc0ff;
+            --ice: #cfe9ff;
+            --card-bg: rgba(30, 48, 110, 0.5);
+            --card-text: #e8f3ff;
+            --font-main: Georgia, 'Palatino Linotype', Palatino, 'DejaVu Serif', serif;
+            --nav-height: 3.25rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ---------- Page background and base text ---------- */
+
+        body {
+            margin: 0;
+            font-family: var(--font-main);
+            color: var(--blue);
+            background-color: var(--navy);
+            background-image:
+                radial-gradient(1.5px 1.5px at 12% 18%, #fff, transparent),
+                radial-gradient(1px 1px at 30% 62%, #cfe9ff, transparent),
+                radial-gradient(1.5px 1.5px at 55% 25%, #fff, transparent),
+                radial-gradient(1px 1px at 72% 70%, #cfe9ff, transparent),
+                radial-gradient(1.5px 1.5px at 88% 12%, #fff, transparent),
+                radial-gradient(1px 1px at 42% 88%, #fff, transparent),
+                radial-gradient(ellipse at top, #243a8c 0%, #0b1230 65%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* ---------- Hyperlinks ---------- */
+
+        a {
+            color: var(--ice);
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--ice);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ---------- Navigation menu ---------- */
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            height: var(--nav-height);
+            background-color: rgba(11, 18, 48, 0.82);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(124, 192, 255, 0.4);
+            overflow-x: auto;
+        }
+
+        .nav ul {
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+            max-width: 860px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+            white-space: nowrap;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 0.35rem 0;
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: var(--ice);
+            border-bottom-color: var(--ice);
+        }
+
+        /* ---------- Page layout and hero ---------- */
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-margin-top: var(--nav-height);
+        }
+
+        .top-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero img {
+            width: 220px;
+            height: 220px;
+            margin: 1.5rem 0;
+            border-radius: 50%;
+            border: 3px solid var(--blue);
+            object-fit: cover;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 28px rgba(124, 192, 255, 0.7);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 0.04em;
+        }
+
+        .subtitle {
+            margin: 0.25rem 0 2rem;
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* ---------- Cards, headings, paragraphs ---------- */
+
+        .cards {
+            width: 100%;
+            max-width: 860px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            color: var(--card-text);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            border: 1px solid rgba(124, 192, 255, 0.4);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            scroll-margin-top: calc(var(--nav-height) + 1rem);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card--wide {
+            grid-column: 1 / -1;
+        }
+
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-6px);
+            box-shadow: 0 0 0 2px var(--blue), 0 10px 24px rgba(124, 192, 255, 0.35);
+        }
+
+        h2 {
+            margin: 0 0 0.75rem;
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--blue);
+        }
+
+        p {
+            margin: 0 0 0.9rem;
+            line-height: 1.7;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---------- Lists ---------- */
+
+        ul,
+        ol {
+            margin: 0;
+            padding-left: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .card li {
+            margin-bottom: 0.4rem;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .card li:hover {
+            transform: translateX(4px);
+            color: var(--ice);
+        }
+
+        .card li::marker {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .when {
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        /* ---------- Link buttons ---------- */
+
+        .link-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .link-row a {
+            padding: 0.55rem 1.1rem;
+            border: 1px solid var(--blue);
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .link-row a:hover {
+            background-color: var(--blue);
+            color: var(--navy);
+        }
+
+        /* ---------- Footer ---------- */
+
+        footer {
+            padding: 1.5rem 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--blue);
+            border-top: 1px solid rgba(124, 192, 255, 0.3);
+            background-color: rgba(11, 18, 48, 0.6);
+        }
+
+        footer small {
+            display: block;
+            line-height: 1.6;
+        }
+
+        /* ---------- Responsive design ---------- */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .card,
+            .card li,
+            .hero img,
+            .nav a,
+            .link-row a {
+                transition: none;
+            }
+
+            .card:hover,
+            .card:focus-within,
+            .card li:hover,
+            .hero img:hover {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .nav ul {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                padding: 2rem 1rem 2rem;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .link-row {
+                flex-direction: column;
+            }
+
+            .link-row a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav" aria-label="Page sections">
+        <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#milestones">Milestones</a></li>
+            <li><a href="#facts">Fast Facts</a></li>
+            <li><a href="#links">Links</a></li>
+        </ul>
+    </nav>
+
+    <main class="page">
+        <header class="hero" id="top">
+            <div class="top-text">Hello, Stargazers!</div>
+
+            <img src="Assets/Suisei.png" alt="Hoshimachi Suisei" width="220" height="220">
+
+            <h1>Hoshimachi Suisei</h1>
+            <div class="subtitle">Virtual Idol &amp; Singer &#9732;&#65039;</div>
+        </header>
+
+        <div class="cards">
+            <section class="card card--wide" id="profile" aria-labelledby="profile-title">
+                <h2 id="profile-title">Profile</h2>
+                <p>
+                    Hoshimachi Suisei (星街すいせい) is a Japanese virtual singer and YouTuber who calls
+                    herself &ldquo;your shooting star, your diamond in the rough.&rdquo; She began on YouTube
+                    as an independent VTuber on March 22, 2018, and later joined hololive Production as a
+                    member of its 0th generation.
+                </p>
+                <p>
+                    Music is at the center of her career. Besides covers, she writes and releases original
+                    songs, and her albums include <em>Still Still Stellar</em> (2021) and <em>Specter</em> (2023).
+                    She is also known for her gaming streams and for her competitive Tetris skills.
+                </p>
+            </section>
+
+            <section class="card" id="milestones" aria-labelledby="milestones-title">
+                <h2 id="milestones-title">Milestones</h2>
+                <ol>
+                    <li><span class="when">March 22, 2018</span> &ndash; Debuts on YouTube as an independent VTuber</li>
+                    <li><span class="when">March 1, 2020</span> &ndash; Debuts her 3D model</li>
+                    <li><span class="when">June 26, 2021</span> &ndash; Her channel reaches 1 million subscribers</li>
+                </ol>
+            </section>
+
+            <section class="card" id="facts" aria-labelledby="facts-title">
+                <h2 id="facts-title">Fast Facts</h2>
+                <ul>
+                    <li>Birthday: March 22 (the same day as her debut)</li>
+                    <li>Fan name: Hoshiyomi</li>
+                    <li>Signature mark: &#9732;&#65039; (comet)</li>
+                </ul>
+            </section>
+
+            <section class="card card--wide" id="links" aria-labelledby="links-title">
+                <h2 id="links-title">Find Suisei Online</h2>
+                <div class="link-row">
+                    <a href="https://hololive.hololivepro.com/en/talents/hoshimachi-suisei/" target="_blank" rel="noopener noreferrer">Official hololive Profile</a>
+                    <a href="https://x.com/suisei_hosimati" target="_blank" rel="noopener noreferrer">Suisei on X</a>
+                    <a href="https://en.wikipedia.org/wiki/Hoshimachi_Suisei" target="_blank" rel="noopener noreferrer">Wikipedia Article</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <small>&copy; 2026 Hoshimachi Suisei Fan Page. All rights reserved.</small>
+        <small>An unofficial fan-made page. Hoshimachi Suisei and hololive are the property of COVER Corp.</small>
+    </footer>
+</body>
+</html>
